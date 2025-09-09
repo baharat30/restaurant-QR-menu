@@ -1,0 +1,136 @@
+.page {
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+.page h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* src/pages/cafe/cafe.css */
+
+.bf-screen {
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.bf-header {
+  margin-bottom: 30px;
+}
+
+.bf-back {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ebad04;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.bf-back:hover {
+  transform: scale(1.08);
+}
+
+.bf-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+  transition: transform 0.25s ease;
+}
+
+.bf-title:hover {
+  transform: scale(1.05);
+}
+
+/* لیست کارت‌ها */
+.bf-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* کارت هر آیتم */
+.bf-card-vertical {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid rgb(245, 244, 241);
+  border-radius: 14px;
+  overflow: visible;
+  padding: 12px;
+  color: #fff;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+
+
+/* عکس غذا */
+.bf-card-vertical img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* افکت بزرگ‌نمایی روی عکس */
+.bf-card-vertical img:hover {
+  transform: scale(1.3);
+  z-index: 2;
+}
+
+/* اطلاعات */
+.bf-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* عنوان (چپ) */
+.bf-info .title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  font-family: 'Merriweather', serif;
+}
+
+/* توضیحات (وسط) */
+.bf-info .desc {
+  flex: 1;
+  font-size: 20px!important;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* قیمت (راست) */
+.price {
+  font-weight: bold;
+  color: gold;
+  text-align: right;
+  min-width: 120px;
+}
+
+.menu-section {
+  margin: 0.7rem 0;
+}
+
+.menu-category {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding-bottom: 0.3rem;
+  color: #f0f058; /* یا رنگ دلخواه */
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+}
+

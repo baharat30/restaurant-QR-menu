@@ -1,0 +1,174 @@
+.bf-screen {
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+.bf-header {
+    margin-bottom: 30px;
+}
+
+.bf-back {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #ebad04;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 1000px;
+}
+
+.bf-back:hover {
+    transform: scale(1.08);
+}
+
+.bf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bf-title:hover {
+    transform: scale(1.08);
+}
+
+.bf-panel {
+    display: flex;
+    justify-content: center;
+}
+
+.bf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.bf-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid goldenrod;
+    border-radius: 14px;
+    padding: 16px;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bf-card:hover {
+    transform: scale(1.05);
+    background: rgba(218, 165, 32, 0.25);
+}
+
+.bf-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.bf-card h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.bf-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.bf-card-vertical {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid goldenrod;
+    border-radius: 12px;
+    overflow: visible;
+    padding: 12px;
+    color: #fff;
+}
+
+.bf-card-vertical img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.bf-info {
+    display: flex;
+    /* ردیفی کردن بچه‌ها */
+    justify-content: space-between;
+    /* فاصله‌ی مساوی بین چپ و راست */
+    align-items: center;
+    /* عمودی وسط */
+    width: 100%;
+    margin: 20px;
+}
+
+.bf-info h2 {
+    text-align: left;
+    flex: 1;
+}
+
+.bf-info p {
+    text-align: center;
+    flex: 2;
+    font-size: 22px !important;
+}
+
+.bf-info span {
+    text-align: right;
+    flex: 1;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.bf-info h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    /* چپ‌چین */
+    font-family: 'Playfair Display', serif;
+}
+
+.bf-info p {
+    margin: 5px 0;
+    font-size: 10px;
+    opacity: 0.9;
+    font-family: 'Roboto', sans-serif;
+      white-space: nowrap;    /* نمی‌ذاره بشکنه خط */
+  overflow: hidden;
+}
+
+.price {
+    font-weight: bold;
+    color: gold;
+    text-align: right;
+    /* چپ‌چین */
+}
+
+.bf-card-vertical img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  cursor: pointer; /* موس بشه دست */
+}
+
+.bf-card-vertical img:hover {
+  transform: scale(1.6); /* خیلی بزرگ شه */
+  z-index: 5; /* بیاد جلو */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* سایه قشنگ */
+}

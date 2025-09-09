@@ -1,0 +1,24 @@
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #ffd700;
+  font-size: 2.2rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* وقتی با ماوس کلیک می‌کنی، فوکوس دیده نشه */
+.scroll-to-top:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* وقتی با کیبورد میای، یک رینگ ملایم داشته باشه (اختیاری) */
+.scroll-to-top:focus-visible {
+  outline: 3px solid rgba(255, 215, 0, 0.5);
+  outline-offset: 4px;
+  border-radius: 6px;
+}

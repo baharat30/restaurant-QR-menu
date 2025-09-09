@@ -1,0 +1,890 @@
+.page {
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+.page h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.rs-screen {
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.rs-header {
+  margin-bottom: 30px;
+}
+
+.rs-back {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #ebad04;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.rs-back:hover {
+  transform: scale(1.08);
+}
+
+.rs-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+  margin: 10px 0 20px;
+  transition: transform 0.25s ease;
+}
+
+.rs-title:hover {
+  transform: scale(1.08);
+}
+
+/* لیست آیتم‌ها به‌صورت ستونی */
+.rs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* کارت هر غذا */
+.rs-card-vertical {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid goldenrod;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+  color: #fff;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.rs-card-vertical:hover {
+  transform: scale(1.03);
+  background: rgba(218, 165, 32, 0.25);
+}
+
+/* تصویر غذا */
+.rs-card-vertical img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.rs-card-vertical img:hover {
+  transform: scale(1.4);
+  /* زوم بزرگ روی عکس */
+}
+
+/* اطلاعات داخل کارت */
+.rs-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  text-align: left;
+}
+
+.rs-info h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+  flex: 1;
+}
+
+/* .rs-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  flex: 2;
+  text-align: center;
+} */
+.rs-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  text-align: center;
+
+  white-space: nowrap;      /* نذار خط بشکنه */
+  overflow: hidden;         /* اگر جا نشد، بریده بشه */
+  text-overflow: ellipsis;  /* سه نقطه بزنه */
+  flex: 0 1 auto;           /* flex رو محدود کن تا متن بی‌جا نکشه */
+}
+
+
+.rs-info .price {
+  font-weight: bold;
+  color: gold;
+  font-size: 18px;
+  flex: 1;
+  text-align: right;
+}
+
+.bf-back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: inline-block;
+  color: #ebad04;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+  opacity: 75%;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration: none;
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.bf-back:hover {
+  transform: scale(1.1);
+}
+
+.bf-info p{
+  font-size: 20px;
+}
+
+.menu-section {
+  margin: 1.25rem 0;
+}
+
+.menu-category {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0.5rem 0 1rem;
+  /* border-bottom: 2px solid #ccc; */
+  padding-bottom: 0.35rem;
+  text-align: center;
+  /* اختیاری */
+  color: #f0f058;
+  /* یا رنگ دلخواه */
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+}
+
+/* 1) اجازه بده فرزندهای flex جمع شوند */
+.bf-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;            /* ✨ مهم: بدون این، ellipsis کار نمی‌کند */
+}
+
+/* 2) عنوان سمت چپ: یک خط */
+.bf-card-vertical .bf-info .title {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 220px;        /* بسته به طرح، کم/زیادش کن */
+}
+
+/* 3) توضیح وسط: دقیقاً یک خط با … */
+.bf-card-vertical .bf-info .desc {
+  flex: 1 1 auto;
+  min-width: 0;            /* ✨ کلید ellipsis در Flexbox */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  margin: 0;
+}
+
+/* قیمت راست: یک خط */
+.bf-card-vertical .bf-info .price {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+
+/*Responsive*/
+/* یک‌خطی و ریزتر شدن دکمه Back */
+.bf-back{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  display: inline-flex;         /* چیدمان افقیِ آیکن + متن */
+  align-items: center;
+  gap: 6px;                     /* فاصله فلش و متن */
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #fff;
+  color: #ebad04;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: .85;
+  z-index: 1000;
+
+  line-height: 1;               /* جمع‌وجور */
+  white-space: nowrap;          /* 👈 هرگز نشکنه */
+  overflow: hidden;             /* اگر خیلی تنگ شد… */
+  text-overflow: ellipsis;      /* …سه نقطه */
+  max-width: 75vw;              /* نذاره از صفحه بیرون بزنه */
+  font-size: clamp(12px, 3.2vw, 16px);  /* در موبایل خودکار کوچک میشه */
+}
+
+.bf-back:hover{ transform: scale(1.06); }
+
+/* ===================  ≤ 1024px (تبلت)  =================== */
+@media (max-width: 1024px) {
+  /* تیتر صفحه کمی کوچکتر */
+  .bf-title, .rs-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 10px 0 14px;
+  }
+
+  /* کارت‌ها کمی جمع‌وجورتر */
+  .bf-card-vertical, .rs-card-vertical {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  /* متن‌ها خواناتر */
+  .bf-info .title, .rs-info h2 { font-size: 1.15rem; }
+  .bf-info .desc,  .rs-info p  { font-size: .95rem;  }
+  .bf-info .price, .rs-info .price { font-size: 1rem; }
+}
+
+/* ===================  ≤ 600px (موبایل)  =================== */
+@media (max-width: 600px) {
+  /* دکمه Back جمع‌وجور و یک‌خطی */
+  .bf-back{
+    position: fixed; top: 10px; left: 10px;
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 10px; border-radius:18px;
+    background:#fff; color:#ebad04; font-weight:700;
+    line-height:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    font-size: .9rem; z-index:1000;
+  }
+
+  /* تیترهای بالای صفحه کوچک‌تر */
+  .bf-title, .rs-title{
+    font-size: 1.6rem;
+    line-height: 1.15;
+    margin: 8px 0 12px;
+  }
+
+  /* تیتر دسته‌بندی‌ها کوچک‌تر */
+  .menu-category{
+    font-size: 1.1rem;
+    margin: 6px 0 10px;
+  }
+
+  /* کارتِ تمام‌عرض، ستونی و وسط‌چین */
+  .bf-list { padding: 10px; }
+  .bf-card-vertical, .rs-card-vertical{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    width:100%; max-width: 480px; margin: 0 auto 12px;
+    padding:10px; border-radius:14px; background:rgba(0,0,0,.55);
+  }
+
+  /* عکس بالا و یکدست */
+  .bf-card-vertical img, .rs-card-vertical img, .bf-img{
+    width:100%; height:auto; aspect-ratio: 4 / 3;   /* اگر مربع می‌خوای: 1 / 1 */
+    object-fit:cover; border-radius:12px; margin:0 0 10px 0;
+  }
+
+  /* ظرف متن‌ها وسط‌چین و زیرهم */
+  .bf-info, .rs-info{
+    display:flex; flex-direction:column; align-items:center; gap:6px;
+    text-align:center; min-width:0;
+  }
+
+  /* عنوان آیتم کمی بزرگ‌تر */
+  .bf-info .title, .rs-info h2{
+    font-size: 1.2rem;
+    margin: 2px 0 0;
+    white-space: normal;           /* چند خط مجاز */
+  }
+
+  /* توضیح: فقط یک خط + …  (طبق خواسته‌ات در موبایل) */
+  .bf-info .desc, .rs-info p{
+    font-size: .95rem;
+    color:#e7e7e7;
+    margin: 0;
+    white-space: nowrap;           /* یک خط */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95%;
+  }
+
+  /* قیمت وسط‌چین و خوانا */
+  .bf-info .price, .rs-info .price{
+    margin: 4px 0 0; font-size: 1rem; font-weight:700; color: gold;
+    white-space: nowrap; text-align:center; align-self:center;
+  }
+
+  /* حذف افکت هاور در موبایل */
+  .bf-card-vertical:hover, .rs-card-vertical:hover { transform:none; }
+}
+
+/* ===================  ≤ 400px (موبایل باریک)  =================== */
+@media (max-width: 400px) {
+  /* تیترهای بالای صفحه */
+  .bf-title, .rs-title{
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin: 6px 0 10px;
+    text-align: center;
+  }
+
+  /* تیتر دسته‌بندی‌ها */
+  .menu-category{
+    font-size: 1rem;
+    margin: 4px 0 8px;
+  }
+
+  /* دکمه Back کوچک‌تر و یک‌خطی */
+  .bf-back{
+    font-size: .8rem;
+    padding: 5px 8px;
+    left: 8px; top: 8px;
+    max-width: 78vw;
+  }
+
+  /* کارت جمع‌وجور و وسط‌چین */
+  .bf-card-vertical, .rs-card-vertical{
+    max-width: 360px;
+    margin: 0 auto 10px;
+    padding: 8px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* تصویر بالا با نسبت یکنواخت (می‌تونی 4/3 بذاری) */
+  .bf-card-vertical img, .rs-card-vertical img, .bf-img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;        /* اگر خواستی، به 4/3 تغییر بده */
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 0 8px 0;
+  }
+
+  /* باکس متن‌ها وسط */
+  .bf-info, .rs-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    min-width: 0;
+  }
+
+  /* عنوان آیتم */
+  .bf-info .title, .rs-info h2{
+    font-size: 1.05rem;
+    margin: 2px 0 0;
+    white-space: normal;        /* اجازه چندخطی */
+  }
+
+  /* توضیح: فقط یک خط + … */
+  .bf-info .desc, .rs-info p{
+    font-size: .85rem;
+    color: #e7e7e7;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 92%;
+  }
+
+  /* قیمت */
+  .bf-info .price, .rs-info .price{
+    font-size: .95rem;
+    font-weight: 700;
+    color: gold;
+    white-space: nowrap;
+    margin-top: 4px;
+    align-self: center;
+    text-align: center;
+  }
+}
+/* ≤600px : کارت‌ها و کل لیست را وسط‌چین کن */
+@media (max-width: 600px){
+  /* خود لیست را محدود و در وسط نگه دار */
+  .bf-list{
+    display: block;            /* ستون ساده */
+    max-width: 520px;          /* عرض منطقی برای موبایل بزرگ */
+    margin: 0 auto;            /* 👈 وسطِ صفحه */
+    padding: 0 12px;           /* کمی فاصله کناری */
+    box-sizing: border-box;
+  }
+
+  /* هر کارت تمامِ عرضِ لیست و وسط */
+  .bf-card-vertical{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto 14px;       /* 👈 وسط + فاصله پایین */
+  }
+  /* ===================  ≤ 600px (موبایل)  =================== */
+@media (max-width: 600px) {
+
+  /* عنوان (h2 / title) */
+  .bf-info .title, .rs-info h2 {
+    font-size: 1.5rem;    /* 👈 بزرگ‌تر از قبل */
+    font-weight: bold;
+  }
+
+  /* توضیح (desc / p) */
+  .bf-info .desc, .rs-info p {
+    font-size: 1.9rem;    /* 👈 متن توضیح درشت‌تر */
+    color: #e7e7e7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95%;
+  }
+
+  /* قیمت */
+  .bf-info .price, .rs-info .price {
+    font-size: 1.5rem;    /* 👈 قیمت هم بزرگ‌تر */
+    font-weight: 700;
+    color: gold;
+  }
+}
+
+}
+
+/* ≤400px : قدری جمع‌وجورتر */
+@media (max-width: 400px){
+  .bf-list{
+    max-width: 360px;          /* کمی باریک‌تر برای گوشی‌های کوچک */
+    padding: 0 10px;
+  }
+  .bf-card-vertical{
+    margin: 0 auto 12px;       /* حفظِ سنتر */
+  }
+}
+/* ≤600px: کارت‌ها و محتوا کاملاً وسط */
+@media (max-width: 600px) {
+  /* خود کارت‌ها وسط */
+  .bf-card-vertical,
+  .rs-card-vertical {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto 14px;     /* سنتر کارت */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* باکس متن‌ها — با اختصاص‌پذیری بیشتر */
+  .bf-card-vertical .rs-info,
+  .rs-card-vertical .rs-info,
+  .bf-card-vertical .bf-info,
+  .rs-card-vertical .bf-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* افقی وسط */
+    justify-content: center;  /* عمودی وسط */
+    gap: 6px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* خود خطوط متن */
+  .rs-info h2, .rs-info p, .rs-info .price,
+  .bf-info .title, .bf-info .desc, .bf-info .price {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* توضیح فقط یک‌خط با … (طبق خواسته‌ات) */
+  .bf-info .desc, .rs-info p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95%;
+  }
+
+   .bf-info .desc{
+    font-size: 15px!important;
+   }
+}
+
+/* ≤400px: کمی جمع‌وجورتر */
+@media (max-width: 400px) {
+  .bf-card-vertical,
+  .rs-card-vertical {
+    max-width: 360px;
+    margin: 0 auto 12px;   /* سنتر کارت */
+    padding: 8px;
+  }
+
+  .bf-info .desc, .rs-info p { max-width: 92%; }
+
+    .bf-info .desc{
+    font-size: 14px!important;
+    white-space: normal!important;
+   }
+     .bf-card-vertical .bf-info .price,
+  .rs-card-vertical .rs-info .price {
+    font-size: 0.9rem !important;  /* کوچیک‌تر از موبایل معمولی */
+    line-height: 1.2;
+    white-space: nowrap;            /* نذار خط بشکنه */
+    overflow: hidden;               
+    text-overflow: ellipsis;        /* اگر جا نشد، … */
+  }
+
+}
+/* ===================  ≤ 600px (موبایل)  =================== */
+@media (max-width: 600px) {
+  /* Back */
+  .bf-back{
+    position: fixed; top: 10px; left: 10px;
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 10px; border-radius:18px;
+    background:#fff; color:#ebad04; font-weight:700;
+    line-height:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    font-size:.9rem; z-index:1000;
+  }
+
+  /* تیترها */
+  .bf-title, .rs-title{
+    font-size: 2rem;
+    line-height: 1.15;
+    margin: 8px 0 12px;
+    text-align: center;
+  }
+  .menu-category{ font-size: 1.1rem; margin: 6px 0 10px; }
+
+  /* لیست و کارت‌ها وسط */
+  .bf-list{ display:block; max-width:520px; margin:0 auto; padding:0 12px; box-sizing:border-box; }
+  .bf-card-vertical, .rs-card-vertical{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    width:100%; max-width:480px; margin:0 auto 14px;
+    padding:12px; border-radius:14px; background:rgba(0,0,0,.55);
+  }
+
+  /* تصویر بالا */
+  .bf-card-vertical img, .rs-card-vertical img, .bf-img{
+    width:100%; height:auto; aspect-ratio:4/3; object-fit:cover;
+    border-radius:12px; margin:0 0 10px 0;
+  }
+
+  /* باکس متن‌ها */
+  .bf-card-vertical .bf-info,
+  .rs-card-vertical .rs-info{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:6px; text-align:center; min-width:0; width:100%;
+  }
+
+  /* عنوان (بزرگ‌تر) */
+  .bf-card-vertical .bf-info .title,
+  .rs-card-vertical .rs-info h2{
+    font-size: 1.5rem;
+    margin: 2px 0 0;
+    white-space: normal;
+  }
+
+  /* توضیح (بزرگ‌تر و یک‌خط با …) */
+  .bf-card-vertical .bf-info .desc,
+  .rs-card-vertical .rs-info p{
+    font-size: 1rem !important;   /* 👈 این باعث می‌شود از قوانین قبلی بزرگ‌تر شود */
+    line-height: 1.35;
+    color:#e7e7e7;
+    margin:0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width:95%;
+  }
+
+  /* قیمت (درشت و وسط) */
+  .bf-card-vertical .bf-info .price,
+  .rs-card-vertical .rs-info .price{
+    font-size: 1.35rem;
+    font-weight:700;
+    color:gold;
+    white-space:nowrap;
+    margin-top:4px;
+    text-align:center;
+    align-self:center;
+  }
+
+  /* هاور بی‌اثر در موبایل */
+  .bf-card-vertical:hover, .rs-card-vertical:hover { transform:none; }
+}
+
+/* 600px تا 1024px (تبلت) */
+@media (min-width: 600px) and (max-width: 1024px) {
+   .bf-title, .rs-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin: 10px 0 14px;
+  }
+
+  /* .bf-card-vertical, .rs-card-vertical {
+    gap: 10px;
+    padding: 12px;
+    min-width: 880px;
+    max-width: 900px;
+  } */
+
+  .bf-card-vertical img, .rs-card-vertical img {
+    width: 140px;
+    height: 140px;
+    margin-right: 16px;
+    border-radius: 10px;
+    object-fit: cover;
+  } 
+
+  .bf-info .title, .rs-info h2 { font-size: 1.15rem; }
+  .bf-info .desc,  .rs-info p  { font-size: 1rem; }
+  .bf-info .price, .rs-info .price { font-size: 1rem; }
+}
+
+@media (max-width: 600px){
+  .rs-list{ max-width: 520px; margin: 0 auto; padding: 0 12px; }
+
+  .rs-card-vertical{
+    display: flex; flex-direction: column; align-items: center; 
+    gap: 10px; padding: 12px; width: 100%;
+    min-height: auto;                 /* در موبایل اجازه ارتفاع متغیر */
+  }
+  .rs-card-vertical img{
+    width: 100%; height: auto; aspect-ratio: 4/3; border-radius: 12px; object-fit: cover;
+  }
+  .rs-info{
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    width: 100%; text-align: center; min-width: 0;
+  }
+  .rs-info h2{ font-size: 1.2rem; white-space: normal; }
+  .rs-info p{ font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 95%; }
+  .rs-info .price{ font-size: 1.1rem; }
+}
+
+/* ظرف لیست */
+.rs-list{ max-width: 920px; margin: 0 auto; }
+
+/* کارت یکدست (دو ستون: عکس | متن) */
+.rs-card-vertical{
+  display: grid;
+  grid-template-columns: 120px 1fr;  /* ✅ ستون سوم حذف شد */
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  min-height: 140px;                 /* ارتفاع یکنواخت */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* عکس ثابت */
+.rs-card-vertical img{
+  width: 120px; height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin: 0;                          /* margin قدیمی خنثی شود */
+}
+
+/* باکس متن: سه ستون هم‌تراز (عنوان | توضیح | قیمت) */
+.rs-info{
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;                        /* برای ellipsis ضروری */
+}
+
+/* عنوان */
+.rs-info h2{
+  margin: 0;
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* توضیح با … */
+.rs-info p{
+  margin: 0;
+  min-width: 0;
+  text-align: center;
+  font-size: .95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* قیمت همیشه یک خط */
+.rs-info .price{
+  margin: 0 0 0 8px;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+/* ==== کانتینر لیست: محدود و وسط ==== */
+.rs-list{
+  display: grid;               /* یا flex؛ مهم نیست، این مهمه که ظرف باشه */
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: min(92vw, 900px);     /* عرض منطقی برای لپ‌تاپ/تبلت */
+  margin: 0 auto;              /* سنتر واقعی */
+  padding: 0 12px;             /* کمی فاصله از کنارها */
+}
+
+/* هر کارت تمامِ عرض ظرف را بگیرد و وسط باشد */
+.rs-card-vertical{
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+/* مدیای 600–1024px: فقط ظرف را کنترل کن، نه خودِ کارت‌ها */
+@media (min-width: 600px) and (max-width: 1024px){
+  .rs-list{
+    width: min(94vw, 900px);
+  }
+}
+
+/* اگر جایی از قبل min/max-width روی کارت‌ها ست شده بود، خنثی کن */
+@media (min-width: 600px) and (max-width: 1024px){
+  .bf-card-vertical, .rs-card-vertical{
+    min-width: unset !important;
+    max-width: unset !important;
+  }
+}
+
+/* 📱 از 600 تا 1024: توضیح بیاد خط بعد */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .rs-info {
+    display: grid;
+    grid-template-columns: max-content 1fr; /* ستون اول: عنوان | ستون دوم: قیمت */
+    grid-template-rows: auto auto;          /* دو ردیف: عنوان+قیمت | توضیح */
+    align-items: center;
+    gap: 6px 12px;                          /* فاصله ردیف و ستون */
+  }
+
+  .rs-info h2 {
+    grid-column: 1 / 2;   /* ستون چپ */
+    grid-row: 1;          /* ردیف اول */
+    white-space: nowrap;
+  }
+
+  .rs-info .price {
+    grid-column: 2 / 3;   /* ستون راست */
+    grid-row: 1;          /* ردیف اول */
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .rs-info p {
+    grid-column: 1 / 3;   /* 👈 توضیح کل عرض زیرشون */
+    grid-row: 2;          /* ردیف دوم */
+    text-align: center;
+    white-space: normal;  /* چند خط آزاد بشه */
+    font-size: 0.95rem;
+  }
+}
+
+/* 600px–1024px: عنوان + قیمت ردیف اول، توضیح ردیف دوم */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .rs-card-vertical .rs-info{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;                 /* اجازه ردیفِ بعدی */
+    min-width: 0;
+  }
+
+  .rs-card-vertical .rs-info h2{
+    order: 1;
+    flex: 0 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rs-card-vertical .rs-info .price{
+    order: 2;
+    margin-left: auto;               /* بچسبه راست کارت */
+    white-space: nowrap;
+  }
+
+  .rs-card-vertical .rs-info p{
+    order: 3;
+    flex: 1 1 100%;                  /* ⬅️ کل عرض ردیف دوم */
+    white-space: normal !important;  /* خنثی‌سازی nowrap قبلی */
+    overflow: visible !important;
+    text-overflow: clip !important;
+    margin: 0;
+    text-align: left;                /* اگر دوست داری center کن */
+    line-height: 1.4;
+  }
+}
+
+
+
+
+/* 📱 فقط بین 600 تا 1024px */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .bf-card-vertical .bf-info,
+  .rs-card-vertical .rs-info {
+    display: flex;
+    flex-wrap: wrap;     /* اجازه بده بره خط بعد */
+    align-items: center;
+    gap: 8px 12px;
+  }
+
+  .bf-card-vertical .bf-info .title,
+  .rs-card-vertical .rs-info h2 {
+    order: 1;            /* اول عنوان */
+    flex: 0 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bf-card-vertical .bf-info .price,
+  .rs-card-vertical .rs-info .price {
+    order: 2;          
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .bf-card-vertical .bf-info .desc,
+  .rs-card-vertical .rs-info p {
+    order: 3;    
+    flex: 1 1 100%;   
+    white-space: normal; 
+    overflow: visible;
+    text-overflow: unset;
+    margin: 0;
+    text-align: center; 
+       /* 👇 اینا رو می‌تونی تغییر بدی */
+    font-size: 1.2rem!important;     /* سایز متن */
+    line-height: 1.6;      /* فاصله بین خطوط */
+    color: #f5f5f5;        /* رنگ متن */
+    font-weight: 400; 
+  }
+}
+
+
+.bf-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  aspect-ratio: 1 / 1; /* مثلا مربع */
+}

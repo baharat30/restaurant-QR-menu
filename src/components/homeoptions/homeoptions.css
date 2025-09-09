@@ -1,0 +1,72 @@
+/* اندازه‌ها را با متغیر کنترل می‌کنیم */
+:root{
+  --circle: 160px;
+  --gap: 28px;
+}
+
+.menu-buttons{
+  display: grid;
+  grid-template-columns: repeat(3, var(--circle)); /* سه تا کنار هم */
+  gap: var(--gap);
+  justify-content: center;
+}
+
+.menu-btn{
+  width: var(--circle);
+  height: var(--circle);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  background: rgba(0,0,0,.55);
+  border: 3px solid goldenrod;
+  font-weight: 800;
+  font-size: clamp(14px, 2.5vw, 20px);
+  transition: transform .25s ease, background .25s ease;
+}
+.menu-btn span{ margin-top: 8px; }
+.menu-btn:hover{ transform: scale(1.08); background: rgba(218,165,32,.25); }
+
+/* --- Breakpoints --- */
+
+/* تا 900px کمی کوچک‌تر */
+@media (max-width: 900px){
+  :root{ --circle: 140px; --gap: 22px; }
+}
+
+/* تا 700px هنوز سه‌تا کنار هم بمانند، باز هم کوچک‌تر */
+@media (max-width: 700px){
+  :root{ --circle: 120px; --gap: 18px; }
+}
+
+/* فقط زیرِ 560px ستونی شود */
+@media (max-width: 560px){
+  .menu-buttons{
+    grid-template-columns: 1fr; /* زیر هم */
+    gap: 16px;
+  }
+  .menu-btn{
+    width: clamp(96px, 60vw, 130px);
+    height: clamp(96px, 60vw, 130px);
+    margin: 0 auto;
+  }
+}
+
+/* زیر 560px: ستونی و کوچیک‌تر */
+@media (max-width: 560px) {
+  .menu-buttons {
+    grid-template-columns: 1fr; /* زیر هم */
+    gap: 14px;                  /* فاصله کمتر */
+  }
+
+  .menu-btn {
+    width: 88px;               /* کوچیک‌تر از قبل */
+    height: 88px;
+    font-size: 14px;            /* متن کوچیک‌تر */
+    margin: 0 auto;
+  }
+}
+

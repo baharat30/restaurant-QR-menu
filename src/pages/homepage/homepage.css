@@ -1,0 +1,72 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* تقسیم سه بخش بالا، وسط، پایین */
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 24px;
+}
+
+.brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 54px;
+  font-weight: 900;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, .75);
+  margin-top: 40px;
+  margin-bottom: 32px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.brand:hover {
+  transform: scale(1.08);
+}
+
+.meno {
+  margin-bottom: 40px; /* فقط یه فاصله کوچک */
+}
+
+.social {
+  margin-bottom: 124px; /* پایین صفحه */
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .brand {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .meno {
+    margin-bottom: 24px;
+  }
+
+  .social {
+    margin-bottom: 80px;
+  }
+}
+
+@media (min-width: 900px) {
+  .social {
+    bottom: 80px;
+  }
+}
+
+/* ≤560px: تیتر جمع‌وجور و فضای پایین برای سوشیال */
+@media (max-width: 560px){
+  .home{ padding: 12px 12px 88px; }               /* جا برای سوشیال */
+  .brand{
+    font-size: clamp(22px, 8vw, 28px);
+    line-height: 1.1;
+    margin: 8px 0 12px;
+    letter-spacing: .04em;
+  }
+}
+
+/* ≤320px: خیلی باریک‌ها (مثل 261px) */
+@media (max-width: 320px){
+  .home{ padding: 10px 10px 80px; }
+  .brand{ font-size: 22px; }
+}
+
